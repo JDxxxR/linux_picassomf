@@ -1403,6 +1403,7 @@ dtb-$(CONFIG_ARCH_TEGRA_2x_SOC) += \
 	tegra20-ventana.dtb \
 	tegra20-glide.dtb
 dtb-$(CONFIG_ARCH_TEGRA_3x_SOC) += \
+	tegra30-acer-a700-picassomf.dtb \
 	tegra30-apalis-eval.dtb \
 	tegra30-apalis-v1.1-eval.dtb \
 	tegra30-asus-nexus7-grouper-PM269.dtb \

@@ -17,3 +17,11 @@ menuconfig ARCH_TEGRA
 	select ZONE_DMA if ARM_LPAE
 	help
 	  This enables support for NVIDIA Tegra based systems.
+
+if ARCH_TEGRA
+config CONFIG_ARCH_TEGRA_PICASSOMF
+	bool "Acer A700/A701 Picasso/MF consumer tablet"
+	help
+		support for Acer A700/A701 Tegra 3 tablet
+
+endif

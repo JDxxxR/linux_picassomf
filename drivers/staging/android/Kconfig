@@ -2,3 +2,5 @@
 menu "Android"
 
 source "drivers/staging/android/ramconsole/Kconfig"
+
+endmenu
