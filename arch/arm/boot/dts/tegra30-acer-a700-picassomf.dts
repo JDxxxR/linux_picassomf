@@ -8,6 +8,7 @@
 #include "tegra30.dtsi"
 #include "tegra30-cpu-opp.dtsi"
 #include "tegra30-cpu-opp-microvolt.dtsi"
+#include "tegra30-acer-lvds.dtsi"
 
 / {
 	model = "Acer Iconia Tab A700";
@@ -22,6 +23,7 @@
             #size-cells = <1>;
             ranges;
 
+            /*
             framebuffer0: framebuffer@acc23000 {
                 compatible = "simple-framebuffer";
                 reg = <0xacc23000 18440191>;
@@ -31,6 +33,7 @@
                 format = "a8r8g8b8";
                 status = "okay";
             };
+            */
 	};
 
 	memory@80000000 {
@@ -67,10 +70,12 @@
 			no-map;
 		};
 
+		/*
 		cont_splash_mem: memory@acc23000 {
 			reg = <0xacc23000 0x1195FFF>;
 			no-map;
 		};
+		*/
 	};
 
         usb@7d000000 {
