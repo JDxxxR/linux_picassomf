@@ -36,6 +36,71 @@
             */
 	};
 
+
+        /* regulators */
+
+        vdd_5v0_sys: regulator-5v0 {
+                compatible = "regulator-fixed";
+                regulator-name = "vdd_5v0";
+                regulator-min-microvolt = <5000000>;
+                regulator-max-microvolt = <5000000>;
+                regulator-always-on;
+                regulator-boot-on;
+        };
+
+        vdd_3v3_sys: regulator-3v3 {
+                compatible = "regulator-fixed";
+                regulator-name = "vdd_3v3";
+                regulator-min-microvolt = <3300000>;
+                regulator-max-microvolt = <3300000>;
+                regulator-always-on;
+                regulator-boot-on;
+                vin-supply = <&vdd_5v0_sys>;
+        };
+
+       /* backlight */
+/*
+	backlight: backlight {
+		compatible = "pwm-backlight";
+
+		enable-gpios = <&gpio TEGRA_GPIO(H, 1) GPIO_ACTIVE_HIGH>;
+		// power-supply = <&vdd_3v3_sys>;
+		pwms = <&pwm 0 100000>;
+
+		brightness-levels = <7 100 255>;
+		num-interpolated-steps = <248>;
+		default-brightness-level = <100>;
+		status = "okay";
+	};
+*/
+
+	display-panel {
+                compatible = "panel-lvds";
+
+                width-mm = <217>;
+                height-mm = <136>;
+
+                data-mapping = "jeida-24";
+                status = "okay";
+
+                panel-timing {
+                        clock-frequency = <152000000>;
+
+                        hactive = <1920>;
+                        vactive = <1200>;
+
+                        hfront-porch = <28>;
+                        hback-porch = <28>;
+
+                        hsync-len = <30>; // TBD
+                        vsync-len = <5>; //TBD
+
+                        vfront-porch = <4>;
+                        vback-porch = <4>;
+                };
+        };
+
+
 	memory@80000000 {
 		reg = <0x80000000 0x40000000>;
 	};
