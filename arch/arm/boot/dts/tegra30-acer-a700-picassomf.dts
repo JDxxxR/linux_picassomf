@@ -36,6 +36,10 @@
             */
 	};
 
+	/* FOR DEBUGGING ONLY: uarte pinmux to sdcard slot */
+	uartx: serial@70006400 {
+		status = "okay";
+	};
 
         /* regulators */
 
@@ -532,6 +536,7 @@
                 nvidia,enable-input = <TEGRA_PIN_DISABLE>;
             };
 
+/* FOR DEBUGGING ONLY: remove sd function from sdcard pins
             sdmmc1_clk_pz0 {
                 nvidia,pins = "sdmmc1_clk_pz0";
                 nvidia,function = "sdmmc1";
@@ -547,6 +552,27 @@
                 nvidia,tristate = <TEGRA_PIN_DISABLE>;
                 nvidia,enable-input = <TEGRA_PIN_ENABLE>;
             };
+*/
+
+        /* FOR DEBUGGING ONLY: RXD and CTS for uarte on sdcard pins */
+        sdmmc1_dat2_py5 {
+			nvidia,pins = "sdmmc1_dat2_py5",
+			"sdmmc1_dat1_py6";
+		nvidia,function = "uarte";
+		nvidia,pull = <TEGRA_PIN_PULL_NONE>;
+		nvidia,tristate = <TEGRA_PIN_DISABLE>;
+		nvidia,enable-input = <TEGRA_PIN_ENABLE>;
+	};
+
+	/* FOR DEBUGGING ONLY: TXD and RTS for uarte on sdcard pins */
+	sdmmc1_dat3_py4 {
+		nvidia,pins = "sdmmc1_dat0_py7",
+			"sdmmc1_dat3_py4";
+		nvidia,function = "uarte";
+		nvidia,pull = <TEGRA_PIN_PULL_NONE>;
+		nvidia,tristate = <TEGRA_PIN_DISABLE>;
+		nvidia,enable-input = <TEGRA_PIN_DISABLE>;
+        };
 
             sdmmc3_clk_pa6 {
                 nvidia,pins = "sdmmc3_clk_pa6";
